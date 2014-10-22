@@ -24,6 +24,10 @@ for a in data.achievements:
 print('Creating goals...')
 goals = []
 for h in data.heroes:
+    upgrade = Upgrade('hire', 1, 1, 0)
+    upgrade_goal = Goal(h['name'], upgrade.level, upgrade)
+    goals.append(upgrade_goal)
+    
     for u in h['upgrades']:
         upgrade = Upgrade(u['type'], u['level'], u['bonus'], u['cost'])
         upgrade_goal = Goal(h['name'], upgrade.level, upgrade)
